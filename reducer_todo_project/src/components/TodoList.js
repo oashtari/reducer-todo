@@ -1,6 +1,7 @@
 import React, { useState, useReducer } from 'react';
 import { initialState, todoReducer } from '../reducers/todoReducer';
 import TodoCard from './TodoCard';
+import TodoForm from './TodoForm';
 
 
 
@@ -10,12 +11,28 @@ const TodoList = () => {
     // console.log('testing', typeof (todos));
     // console.log('correct list', list);
 
+    const [newTodo, setNewTodo] = useState('');
+
     // const newTodos = todos.map(todo => {
     //     return <li>{todo.item} things</li>;
     // })
 
+    const handleAddTodo = e => {
+        dispatch({ type: "ADD_TODO", paylod: newTodo })
+    }
+
+    const handleCompleteTodo = e => {
+        dispatch({ type: "COMPLETE_TODO" })
+    }
+
+
+
     return (
+
         <div clasName='todo_list'>
+            <TodoForm addTodo={handleAddTodo} />
+
+            <h2>Ahhh, yes, here are the things you need to get DONE:</h2>
             {state.map(todo => (
                 <TodoCard key={todo.id} todo={todo.item} />
             ))}

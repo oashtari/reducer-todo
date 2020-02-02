@@ -2,26 +2,15 @@ import React, { useReducer, useState } from 'react';
 import { todoReducer, initialState } from '../reducers/todoReducer';
 import TodoList from './TodoList';
 
-export const TodoForm = () => {
+export const TodoForm = (props) => {
 
-    const [state, dispatch] = useReducer(todoReducer, initialState);
-    // console.log(state);
-    const [newTodo, setNewTodo] = useState('');
     const [todoList, setTodoList] = useState(initialState);
 
 
-    const handleChange = e => {
-        setNewTodo(e.target.value);
-        console.log(newTodo);
-    }
-
-    const handleAddTodo = e => {
-        dispatch({ type: "ADD_TODO", paylod: newTodo })
-    }
-
-    const handleCompleteTodo = e => {
-        dispatch({ type: "COMPLETE_TODO" })
-    }
+    // const handleChange = e => {
+    //     setNewTodo(e.target.value);
+    //     console.log(newTodo);
+    // }
 
     return (
         <div>
@@ -30,13 +19,12 @@ export const TodoForm = () => {
                 placeholder="Add new Todo"
                 type='test'
                 name='newTodo'
-                value={newTodo}
-                onChange={handleChange}
+            // value={newTodo}
+            // onChange={handleChange}
             />
-            <button onClick={handleAddTodo}>Submit new todo</button>
+            <button onClick={props.addTodo}>Submit new todo</button>
 
-            <h2>Ahhh, yes, here are the things you need to get DONE:</h2>
-            <TodoList todos={todoList} />
+
         </div>
     )
 }
