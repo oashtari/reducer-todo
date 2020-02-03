@@ -18,7 +18,17 @@ export const TodoForm = () => {
 
     const handleAddTodo = newTodo => {
         dispatch({ type: "ADD_TODO", payload: { item: newTodo, complete: false, id: Date.now() } })
-        console.log('testing newTodo', newTodo)
+        setNewTodo('');
+    }
+
+    const toggleTodo = id => {
+        dispatch({ type: 'TOGGLE_TODO', payload: id });
+        console.log('are we getting an id?', id)
+    }
+
+    const clearCompleted = id => {
+        dispatch({ type: 'CLEAR_COMPLETED' });
+        console.log('here is what to clear')
     }
 
     useEffect(() => {
@@ -38,9 +48,8 @@ export const TodoForm = () => {
             <button onClick={handleSubmit}>Submit new todo</button>
 
             <h2>Ahhh, yes, here are the things you need to get DONE:</h2>
-            <TodoCard />
-
-
+            <TodoCard toggleTodo={toggleTodo} />
+            <button onClick={clearCompleted}>Clear Completed Todos</button>
 
         </div>
     )

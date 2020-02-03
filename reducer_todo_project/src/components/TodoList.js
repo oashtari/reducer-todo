@@ -1,21 +1,21 @@
-import React, { useState, useEffect, useReducer } from 'react';
+import React, { useEffect, useReducer } from 'react';
 import { initialState, todoReducer } from '../reducers/todoReducer';
-import TodoCard from './TodoCard';
+// import TodoCard from './TodoCard';
 import TodoForm from './TodoForm';
-import { Action } from 'rxjs/internal/scheduler/Action';
+// import { Action } from 'rxjs/internal/scheduler/Action';
 
 
 const TodoList = () => {
-    const [state, dispatch] = useReducer(todoReducer, initialState);
+    const [state] = useReducer(todoReducer, initialState);
 
-    console.log('ahhhhh', state);
+
 
     useEffect(() => {
-        console.log('testing in LIST COMP', state);
+        // console.log('testing in LIST COMP', state);
     }, [state]);
     return (
         <div>
-            <TodoForm />
+            {/* <TodoForm /> */}
             {/* <TodoCard /> */}
         </div>
     )
