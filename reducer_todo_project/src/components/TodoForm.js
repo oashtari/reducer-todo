@@ -47,7 +47,7 @@ export const TodoForm = () => {
             />
             <button onClick={handleSubmit}>Submit new todo</button>
 
-            <h2>Ahhh, yes, here are the things you need to get DONE:</h2>
+            <h3>Ahhh, yes, here are the things you need to get DONE:</h3>
             <TodoCard state={state} toggleTodo={toggleTodo} />
             <button onClick={clearCompleted}>Clear Completed Todos</button>
 

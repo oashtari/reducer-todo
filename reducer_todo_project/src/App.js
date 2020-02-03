@@ -7,7 +7,7 @@ import TodoForm from './components/TodoForm';
 function App() {
   return (
     <div className="App">
-      <h2>Here you shall add new things you must DO:</h2>
+      <h1>Here you shall add new things you must DO:</h1>
       <TodoForm />
     </div>
   );
