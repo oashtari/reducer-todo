@@ -14,10 +14,11 @@ export const initialState = {
 
 
 export const todoReducer = (state, action) => {
+
     switch (action.type) {
         case 'ADD_TODO':
             return { ...state, items: [...state.items, action.payload] }
-            console.log('is state working', state)
+        // console.log('is state working', state)
 
         // case 'COMPLETE_TODO':
         //     return {

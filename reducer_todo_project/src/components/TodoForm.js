@@ -1,5 +1,6 @@
 import React, { useReducer, useState, useEffect } from 'react';
 import { todoReducer, initialState } from '../reducers/todoReducer';
+import TodoCard from './TodoCard';
 
 export const TodoForm = () => {
     const [state, dispatch] = useReducer(todoReducer, initialState);
@@ -8,13 +9,11 @@ export const TodoForm = () => {
 
     const handleChange = e => {
         setNewTodo(e.target.value);
-        // console.log('updated todo:', newTodo);
     }
 
     const handleSubmit = e => {
         e.preventDefault();
         handleAddTodo(newTodo);
-        // console.log('post submit', newTodo)
     }
 
     const handleAddTodo = newTodo => {
@@ -23,7 +22,7 @@ export const TodoForm = () => {
     }
 
     useEffect(() => {
-        console.log('testing in form comp', state);
+        console.log('testing in  FORM ', state);
     }, [state])
 
     return (
@@ -37,6 +36,10 @@ export const TodoForm = () => {
                 onChange={handleChange}
             />
             <button onClick={handleSubmit}>Submit new todo</button>
+
+            <h2>Ahhh, yes, here are the things you need to get DONE:</h2>
+            <TodoCard />
+
 
 
         </div>

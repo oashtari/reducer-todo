@@ -1,17 +1,24 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect, useState } from 'react';
 import { initialState, todoReducer } from '../reducers/todoReducer';
 
 
 const TodoCard = props => {
     const [state, dispatch] = useReducer(todoReducer, initialState);
 
+    // const [newTodos, setNewTodos] = useState(state);
+
+    const todoItems = state.items.map(todo => {
+        return <li>{todo.item} things</li>;
+    })
+
+    // useEffect(() => {
+    //     console.log('testing in form CARD', state);
+    // }, [newTodos])
+
+
     return (
         <div className="todo_card">
-            <h1 className="item">{props.todo}</h1>
-
-            {/* <button onClick={() => props.addItem(props.product)}>
-				Add to cart
-			</button> */}
+            <h1 className="item">{todoItems}</h1>
         </div>
     );
 };

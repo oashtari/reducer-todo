@@ -5,39 +5,44 @@ import TodoForm from './TodoForm';
 import { Action } from 'rxjs/internal/scheduler/Action';
 
 
-
 const TodoList = () => {
-    // const [state, dispatch] = useReducer(todoReducer, initialState);
+    const [state, dispatch] = useReducer(todoReducer, initialState);
 
-    const [todoList, setTodoList] = useState(initialState);
+    console.log('ahhhhh', state);
 
-
-    // const newTodos = todos.map(todo => {
-    //     return <li>{todo.item} things</li>;
-    // })
-
-
-
-    // const handleCompleteTodo = e => {
-    //     dispatch({ type: "COMPLETE_TODO" })
-    // }
-
-    // useEffect(() => {
-    //     console.log('testing', state);
-    // }, [state])
-
+    useEffect(() => {
+        console.log('testing in LIST COMP', state);
+    }, [state]);
     return (
-
-        <div clasName='todo_list'>
+        <div>
             <TodoForm />
-
-            <h2>Ahhh, yes, here are the things you need to get DONE:</h2>
-            <TodoCard />
+            {/* <TodoCard /> */}
         </div>
-
     )
 }
 
+// const TodoList = () => {
+//     const [state, dispatch] = useReducer(todoReducer, initialState);
+
+//     // const [todoList, setTodoList] = useState(initialState);
+
+//     console.log('ahhhhh', state);
+//     // const handleCompleteTodo = e => {
+//     //     dispatch({ type: "COMPLETE_TODO" })
+//     // }
+
+//     useEffect(() => {
+//         console.log('testing in  LIST ', state);
+//     }, [state])
+
+//     return (
+//         <div clasName='todo_list'>
+//             <TodoForm />
+//             {/* <TodoCard /> */}
+//         </div>
+
+//     )
+// }
 
 export default TodoList;
 
