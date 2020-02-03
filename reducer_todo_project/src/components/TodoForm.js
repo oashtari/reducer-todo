@@ -56,32 +56,3 @@ export const TodoForm = () => {
 }
 
 export default TodoForm;
-
-
-
-
-
-
-// const TodoInput = props => {
-//     const [input, setInput] = useState('');
-
-//     const handleInput = e => {
-//         setInput(e.target.value);
-//     }
-
-//     const handleSubmit = e => {
-//         e.preventDefault();
-//         if (input.length > 3) {
-//             props.addTodo(input);
-//             setInput('');
-//         }
-//     }
-
-//     return (
-//         <form onSubmit={handleSubmit} className="todo-input">
-//             <input type="text" value={input} onChange={handleInput} />
-//             <button>Add Todo</button>
-//             <button onClick={e => { e.preventDefault(); props.clearAllTodos(); }}>Clear Completed</button>
-//         </form>
-//     )
-// }

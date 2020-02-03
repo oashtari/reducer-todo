@@ -1,12 +1,8 @@
-import React, { useReducer } from 'react';
-import { initialState, todoReducer } from '../reducers/todoReducer';
+import React from 'react';
 import './Todo.css'
 
 
 const TodoCard = ({ state, toggleTodo }) => {
-    // const [state] = useReducer(todoReducer, initialState);
-
-    // const [newTodos, setNewTodos] = useState(state);
 
     const todoItems = state.items.map(todo => {
         return (
