@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useReducer } from 'react';
+import { initialState, todoReducer } from '../reducers/todoReducer';
 
 
 const TodoCard = props => {
+    const [state, dispatch] = useReducer(todoReducer, initialState);
+
     return (
         <div className="todo_card">
             <h1 className="item">{props.todo}</h1>

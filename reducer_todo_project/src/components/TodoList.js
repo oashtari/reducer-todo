@@ -1,52 +1,39 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import { initialState, todoReducer } from '../reducers/todoReducer';
 import TodoCard from './TodoCard';
 import TodoForm from './TodoForm';
+import { Action } from 'rxjs/internal/scheduler/Action';
 
 
 
 const TodoList = () => {
-    const [state, dispatch] = useReducer(todoReducer, initialState);
-    // const [list, setList] = useState(todos);
-    // console.log('testing', typeof (todos));
-    // console.log('correct list', list);
+    // const [state, dispatch] = useReducer(todoReducer, initialState);
 
-    const [newTodo, setNewTodo] = useState('');
+    const [todoList, setTodoList] = useState(initialState);
+
 
     // const newTodos = todos.map(todo => {
     //     return <li>{todo.item} things</li>;
     // })
 
-    const handleAddTodo = e => {
-        dispatch({ type: "ADD_TODO", paylod: newTodo })
-    }
-
-    const handleCompleteTodo = e => {
-        dispatch({ type: "COMPLETE_TODO" })
-    }
 
 
+    // const handleCompleteTodo = e => {
+    //     dispatch({ type: "COMPLETE_TODO" })
+    // }
+
+    // useEffect(() => {
+    //     console.log('testing', state);
+    // }, [state])
 
     return (
 
         <div clasName='todo_list'>
-            <TodoForm addTodo={handleAddTodo} />
+            <TodoForm />
 
             <h2>Ahhh, yes, here are the things you need to get DONE:</h2>
-            {state.map(todo => (
-                <TodoCard key={todo.id} todo={todo.item} />
-            ))}
+            <TodoCard />
         </div>
-        // <h3>{newTodos}</h3>
-
-        // <div className="todo_list">
-        //     {state.map((todo, idx) => (
-        //         <Todo key={idx} {...todo} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
-        //     ))}
-        //     <TodoInput addTodo={addTodo} clearAllTodos={clearAllTodos} />
-        // </div>
-
-
 
     )
 }
@@ -56,8 +43,6 @@ export default TodoList;
 
 
 
-// import Todo from './Todo';
-// import TodoInput from './TodoInput';
 
 // const TodoList = () => {
 //     const [state, dispatch] = useReducer(reducer, initialState);
